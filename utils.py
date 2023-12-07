@@ -1,5 +1,6 @@
 import re
 import shutil
+import os
 
 def convert_time_to_seconds(text):
     # Extract minutes and seconds using regular expressions
@@ -26,4 +27,4 @@ def convert_time_to_seconds(text):
 
 
 def print_center(str: str) -> None:
-    print(str.center(shutil.get_terminal_size().columns))
+    print(str.center(os.get_terminal_size().columns))

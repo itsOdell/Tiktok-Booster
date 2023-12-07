@@ -1,4 +1,6 @@
+import art
 import utils
+from inquirer import Text, List, prompt
 import undetected_chromedriver as uc
 from time import sleep
 from selenium.webdriver import ChromeOptions
@@ -7,7 +9,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from PIL import Image
-
 
 
 class ZefoyAutomator:
@@ -94,9 +95,16 @@ class ZefoyAutomator:
         except:
             self.driver.quit()
         
+utils.print_center(art.LOGO_ART)
 
-post_url = input("Enter tiktok post url: ")
-bot_type = input("What do you want (views/hearts/comment_hearts/shares/favorites/live_stream):")
-botter = ZefoyAutomator(post_url)
-botter.launch()
-botter.send()
+questions = [
+    Text("post_url", message="Enter Tiktok URL here"),
+    List("Type", message="What stat do you want to bot (Use arrows to choose)?",
+         choices=["followers", "hearts", "comment_hearts", "views", "shares", "favorites", "live_stream"]
+         )
+]
+
+print(prompt(questions))
+# botter = ZefoyAutomator(post_url)
+# botter.launch()
+# botter.send()
