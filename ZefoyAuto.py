@@ -14,7 +14,7 @@ questions = [
          )
 ]
 
-# answers = prompt(questions)
-# botter = Zefoy(answers["post_url"], answers["type"])
-# botter.launch()
-# botter.send()
+answers = prompt(questions)
+botter = Zefoy(answers["post_url"], answers["type"])
+botter.launch()
+botter.send()
