@@ -1,6 +1,6 @@
 import art
 from inquirer import Text, List, prompt
-from Bots import Zefoy
+from Bots.Zefoy import ZefoyAutomator
 
 
 print(art.LOGO_ART)
@@ -15,6 +15,7 @@ questions = [
 ]
 
 answers = prompt(questions)
-botter = Zefoy(answers["post_url"], answers["type"])
+
+botter = ZefoyAutomator(answers["post_url"], type=answers["type"])
 botter.launch()
 botter.send()
