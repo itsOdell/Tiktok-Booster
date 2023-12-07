@@ -68,6 +68,7 @@ class ZefoyAutomator:
             paragraph_wait_time = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, self.selectors["wait_time_paragraph"]))).text
             wait_time = utils.convert_time_to_seconds(paragraph_wait_time)
             print(f"Waiting {wait_time} seconds before sending next batch...")
+            sleep(wait_time)
         except (NoSuchElementException, TimeoutException) as e:
             send_button = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, self.selectors["send_button"])))
             send_button.click()
@@ -78,7 +79,9 @@ class ZefoyAutomator:
     
     def launch(self):
         try:
+            print("Starting...")
             self.driver = uc.Chrome(headless=self.headless)
+            print("Bot Started Successfully!")
             self.driver.get(self.domain)
             self.solve_captcha()
             
@@ -93,6 +96,7 @@ class ZefoyAutomator:
         
 
 post_url = input("Enter tiktok post url: ")
+bot_type = input("What do you want (views/hearts/comment_hearts/shares/favorites/live_stream):")
 botter = ZefoyAutomator(post_url)
 botter.launch()
 botter.send()
