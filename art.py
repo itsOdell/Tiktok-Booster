@@ -16,7 +16,7 @@ LOGO_ART = Center.XCenter(Fore.LIGHTMAGENTA_EX + Style.BRIGHT + """
 ░░░██║░░░██║██║░╚██╗░░░██║░░░╚█████╔╝██║░╚██╗  ██████╦╝╚█████╔╝░░░██║░░░░░░██║░░░███████╗██║░░██║
 ░░░╚═╝░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝  ╚═════╝░░╚════╝░░░░╚═╝░░░░░░╚═╝░░░╚══════╝╚═╝░░╚═╝\n\n
         DISCORD: https://discord.gg/AMqeGspYK3   GITHUB: https://github.com/itsOdell
-""")
+\n\n""")
 
 input_style = Style.BRIGHT + Fore.LIGHTCYAN_EX
 success_style = Fore.LIGHTGREEN_EX + Style.BRIGHT

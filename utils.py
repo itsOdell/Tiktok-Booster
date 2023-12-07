@@ -1,6 +1,4 @@
 import re
-import shutil
-import os
 
 def convert_time_to_seconds(text):
     # Extract minutes and seconds using regular expressions
@@ -24,7 +22,3 @@ def convert_time_to_seconds(text):
     # Calculate total time in seconds
     total_time_in_seconds = minutes + seconds
     return total_time_in_seconds
-
-
-def print_center(str: str) -> None:
-    print(str.center(os.get_terminal_size().columns))
