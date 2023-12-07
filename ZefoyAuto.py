@@ -5,14 +5,16 @@ from Bots import Zefoy
 
 print(art.LOGO_ART)
 
+
+
 questions = [
-    Text("post_url", message="Enter Tiktok URL here"),
-    List("type", message="What stat do you want to bot (Use arrows to choose)?",
+    Text("post_url", message=art.input_style + "Enter Tiktok URL here"),
+    List("type", message=art.input_style + "What stat do you want to bot (Use arrows to choose)?",
          choices=["followers", "hearts", "comment_hearts", "views", "shares", "favorites", "live_stream"]
          )
 ]
 
-answers = prompt(questions)
-botter = Zefoy(answers["post_url"], answers["type"])
-botter.launch()
-botter.send()
+# answers = prompt(questions)
+# botter = Zefoy(answers["post_url"], answers["type"])
+# botter.launch()
+# botter.send()

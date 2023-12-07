@@ -1,4 +1,6 @@
 import utils
+from inquirer import Text, prompt
+import art
 import undetected_chromedriver as uc
 from time import sleep
 from selenium.webdriver import ChromeOptions
@@ -44,7 +46,7 @@ class ZefoyAutomator:
             
             image = Image.open("captcha.png")
             image.show()
-            captcha_answer = input("Enter the captcha answer: ")
+            captcha_answer = prompt([Text("captcha_answer", message=art.input_style + "Enter the captcha answer")])["captcha_answer"]
             captcha_input.send_keys(captcha_answer)
             captcha_input.submit()
             image.close()
@@ -52,9 +54,9 @@ class ZefoyAutomator:
             try:
                 close_error_dial = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, self.selectors["close_captcha_error"])))
                 close_error_dial.click()
-                print("Captcha incorrect")
+                print(art.error_style + "Captcha incorrect! Retrying...")
             except (TimeoutException, NoSuchElementException) as e:
-                print("Captcha passed!")
+                print(art.success_style + "Captcha passed!")
                 solved = True
             
     def send(self):
@@ -62,25 +64,25 @@ class ZefoyAutomator:
         search_button = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, self.selectors["search_button"])))
         search_button.click()
         try:
-            print(f"Attempting to send {self.type}...")
+            print(art.light_magenta + f"Attempting to send {self.type}...")
             sleep(5)
             paragraph_wait_time = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, self.selectors["wait_time_paragraph"]))).text
             wait_time = utils.convert_time_to_seconds(paragraph_wait_time)
-            print(f"Waiting {wait_time} seconds before sending next batch...")
+            print(art.warning_style + f"Waiting {wait_time} seconds before sending next batch...")
             sleep(wait_time)
         except (NoSuchElementException, TimeoutException) as e:
             send_button = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, self.selectors["send_button"])))
             send_button.click()
-            print("Successfully sent 1000+ views")
+            print(art.success_style + f"Successfully sent 1000+ {self.type}")
         finally:
             sleep(5)
             return self.send()
     
     def launch(self):
         try:
-            print("Starting...")
+            print(art.light_magenta + "Starting the bot...")
             self.driver = uc.Chrome(headless=self.headless)
-            print("Bot Started Successfully!")
+            print(art.success_style + "Bot has started successfully!")
             self.driver.get(self.domain)
             self.solve_captcha()
             
