@@ -1,7 +1,9 @@
+ansicon==1.89.0
 ascii-magic==2.3.0
 asttokens==2.4.1
 attrs==23.1.0
 beautifulsoup4==4.12.2
+blessed==1.20.0
 blinker==1.7.0
 Brotli==1.1.0
 bs4==0.0.1
@@ -17,9 +19,11 @@ h2==4.1.0
 hpack==4.0.0
 hyperframe==6.0.1
 idna==3.4
+inquirer==3.1.4
 ipython==8.18.1
 isodate==0.6.1
 jedi==0.19.1
+jinxed==1.2.1
 kaitaistruct==0.10
 lxml==4.9.3
 matplotlib-inline==0.1.6
@@ -41,6 +45,8 @@ pyparsing==3.1.1
 PySocks==1.7.1
 pystyle==2.9
 pytesseract==0.3.10
+python-editor==1.0.4
+readchar==4.0.5
 requests==2.31.0
 requests-toolbelt==1.0.0
 selenium==4.14.0
