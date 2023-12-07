@@ -67,9 +67,12 @@ class ZefoyAutomator:
             print(art.light_magenta + f"Attempting to send {self.type}...")
             sleep(5)
             paragraph_wait_time = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, self.selectors["wait_time_paragraph"]))).text
+            
             wait_time = utils.convert_time_to_seconds(paragraph_wait_time)
-            print(art.warning_style + f"Waiting {wait_time} seconds before sending next batch...")
-            sleep(wait_time)
+            for time in range(wait_time):
+                print(art.warning_style + f"Waiting {wait_time - time} seconds before sending next batch...", end="\r")
+                sleep(1)
+                
         except (NoSuchElementException, TimeoutException) as e:
             send_button = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, self.selectors["send_button"])))
             send_button.click()

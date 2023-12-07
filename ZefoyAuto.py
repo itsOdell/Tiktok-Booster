@@ -1,11 +1,10 @@
 import art
+import time
 from inquirer import Text, List, prompt
 from Bots.Zefoy import ZefoyAutomator
 
 
 print(art.LOGO_ART)
-
-
 
 questions = [
     Text("post_url", message=art.input_style + "Enter Tiktok URL here"),
