@@ -1,8 +1,8 @@
 import utils
 from inquirer import Text, prompt
 import art
-import undetected_chromedriver as uc
 from time import sleep
+import undetected_chromedriver as uc
 from selenium.webdriver import ChromeOptions
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
